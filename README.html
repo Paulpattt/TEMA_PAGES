@@ -1,0 +1,105 @@
+hello<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TEMA - Réseau Social</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Background Video -->
+    <video autoplay loop muted playsinline id="background-video">
+        <source src="assets/welcomeVideoDark.mov" type="video/mp4"> <!-- Note: Using video/mp4 MIME type for .mov might work sometimes, but ideally convert to MP4 -->
+        Votre navigateur ne supporte pas la lecture de vidéos.
+    </video>
+
+    <header>
+        <div class="header-container">
+            <!-- Logo Container (now a link) -->
+            <a href="/" id="logo-link" class="logo-container">
+                <img src="/images/TEMA_LogoRed_Clair.png" alt="TEMA Logo" class="logo-image">
+            </a>
+            <nav class="nav-buttons">
+                <!-- Les boutons Connexion/Inscription ou l'état connecté seront injectés ici par JS -->
+            </nav>
+
+            <div class="search-bar">
+                <button><i class="fas fa-search"></i></button>
+                <input type="text" id="search-input">
+            </div>
+
+            <!-- Placeholder for User Avatar -->
+            <div class="user-avatar-container" id="user-avatar-placeholder">
+                <!-- Avatar image will be loaded here by JS -->
+            </div>
+        </div>
+    </header>
+
+    <!-- Menu déroulant Utilisateur -->
+    <div id="user-menu-dropdown" class="user-menu">
+        <a href="/profile" id="menu-profile-link">Mon Profil</a>
+        <a href="#" id="menu-settings-link">Paramètres</a>
+        <hr>
+        <button id="logout-button-menu">Déconnexion</button>
+    </div>
+
+    <main id="main-content">
+        <!-- Forçage rechargement cache -->
+        <section class="feed" id="posts-container">
+            <!-- Les posts seront chargés dynamiquement ici -->
+            <div class="loading">Chargement des posts...</div>
+        </section>
+    </main>
+
+    <!-- Modales pour connexion/inscription -->
+    <div id="login-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Connexion</h2>
+            <form id="login-form">
+                <div class="form-group">
+                    <label for="login-email">Email</label>
+                    <input type="email" id="login-email" required>
+                </div>
+                <div class="form-group">
+                    <label for="login-password">Mot de passe</label>
+                    <input type="password" id="login-password" required>
+                </div>
+                <button type="submit" class="primary-btn">Se connecter</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="signup-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Inscription</h2>
+            <form id="signup-form">
+                <div class="form-group">
+                    <label for="signup-name">Nom complet</label>
+                    <input type="text" id="signup-name" required>
+                </div>
+                <div class="form-group">
+                    <label for="signup-email">Email</label>
+                    <input type="email" id="signup-email" required>
+                </div>
+                <div class="form-group">
+                    <label for="signup-phone">Téléphone</label>
+                    <input type="tel" id="signup-phone" required>
+                </div>
+                <div class="form-group">
+                    <label for="signup-password">Mot de passe</label>
+                    <input type="password" id="signup-password" required>
+                </div>
+                <button type="submit" class="primary-btn">S'inscrire</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Scripts JavaScript avec type="module" -->
+    <script type="module" src="js/firebase-config.js"></script>
+    <script type="module" src="js/auth.js"></script>
+    <script type="module" src="js/main.js"></script>
+</body>
+</html> 
